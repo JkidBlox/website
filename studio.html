@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Studio &mdash; jkidblox.top</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <style>
+
+        .studio-logo-window {
+
+            width: min(350px, 90vw);
+
+            aspect-ratio: 1 / 1;
+
+            margin: 0 auto;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        .studio-logo-header {
+
+            flex-shrink: 0;
+
+        }
+
+
+        .studio-logo-placeholder {
+
+            flex: 1;
+
+            min-height: 0;
+
+            margin: 0;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: none;
+
+            background: rgba(92,255,157,0.015);
+
+            overflow: hidden;
+
+        }
+
+
+        .studio-logo-placeholder img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            object-position: center;
+
+            display: block;
+
+        }
+
+
+        /* CLICKABLE PROJECT */
+
+        .studio-project-link {
+
+            display: block;
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+
+        .studio-project-link:hover {
+
+            color: inherit;
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .studio-logo-window {
+
+                width: 90vw;
+
+            }
+
+
+            .studio-logo-placeholder {
+
+                padding: 20px;
+
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .studio-logo-window {
+
+                width: 92vw;
+
+            }
+
+
+            .studio-logo-placeholder {
+
+                padding: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <div class="scanlines"></div>
+
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            jkidblox.top
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">MAIN</a>
+            <a href="about.html">ABOUT</a>
+            <a href="games.html">GAMES</a>
+            <a href="news.html">NEWS</a>
+            <a href="studio.html" class="active">STUDIO</a>
+            <a href="contact.html">CONTACT</a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="page">
+
+            <div class="page-header">
+
+                <div class="section-label">
+                    // STUDIO
+                </div>
+
+                <h1>
+                    Dark Plant Entertainment&trade;<span>_</span>
+                </h1>
+
+                <p>
+                    Independent development. Small team. Big ideas.
+                </p>
+
+            </div>
+
+
+            <section class="studio-logo-section">
+
+                <div class="studio-logo-window">
+
+                    <div class="studio-logo-header">
+
+                        <div class="terminal-dots">
+
+                            <span></span>
+                            <span></span>
+                            <span></span>
+
+                        </div>
+
+                        <span>
+                            darkplant@studio:~
+                        </span>
+
+                    </div>
+
+
+                    <div class="studio-logo-placeholder">
+
+                        <img
+                            src="assets/Dark_Plant.png"
+                            alt="Dark Plant Entertainment logo"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="studio-about">
+
+                <div class="section-label">
+                    // ABOUT THE STUDIO
+                </div>
+
+
+                <h2>
+                    Built <span>independently.</span>
+                </h2>
+
+
+                <p>
+                    Dark Plant Entertainment is an independent
+                    game development studio focused on creating
+                    unique games, digital experiences, and
+                    experimental projects.
+                </p>
+
+
+                <p>
+                    We are a small team working on our own ideas,
+                    combining programming, 3D art, sound, and
+                    game design.
+                </p>
+
+            </section>
+
+
+            <section class="studio-projects">
+
+                <div class="section-label">
+                    // PROJECTS
+                </div>
+
+
+                <h2>
+                    Current projects
+                </h2>
+
+
+                <a
+                    href="games.html"
+                    class="studio-project-link"
+                >
+
+                    <div class="studio-project-card">
+
+                        <div class="studio-project-number">
+                            01
+                        </div>
+
+
+                        <div class="studio-project-content">
+
+                            <h3>
+                                Radiopair
+                            </h3>
+
+
+                            <p>
+                                An upcoming simulation game currently
+                                being developed by Dark Plant Entertainment.
+                            </p>
+
+
+                            <div class="studio-project-status">
+                                IN DEVELOPMENT
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </section>
+
+
+            <section class="studio-info">
+
+                <div class="info-card">
+
+                    <div class="card-number">
+                        TYPE
+                    </div>
+
+                    <h2>
+                        Independent
+                    </h2>
+
+                    <p>
+                        Small independent development team.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="card-number">
+                        FOCUS
+                    </div>
+
+                    <h2>
+                        Games
+                    </h2>
+
+                    <p>
+                        Game development, programming,
+                        design, and digital projects.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="card-number">
+                        STATUS
+                    </div>
+
+                    <h2>
+                        Active
+                    </h2>
+
+                    <p>
+                        Currently developing new projects.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                &copy;JkidBlox 2026 &bull; All Rights Reserved
+            </div>
+
+            <div
+                class="social-links"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                "
+            >
+
+                <!-- TIKTOK -->
+
+                <a
+                    class="social-link"
+                    href="https://www.tiktok.com/@darkplantentertainment"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                    title="TikTok"
+                    style="
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    "
+                >
+
+                    <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        style="
+                            width: 15px;
+                            height: 15px;
+                            min-width: 15px;
+                            min-height: 15px;
+                            max-width: 15px;
+                            max-height: 15px;
+                            display: block;
+                        "
+                    >
+
+                        <path d="M19.589 6.686a4.793 4.793 0 0 1-4.13-4.18V2h-3.89v13.217a2.896 2.896 0 1 1-2.896-2.896c.302 0 .592.047.865.132V8.48a6.78 6.78 0 0 0-.865-.055A6.785 6.785 0 1 0 15.463 15V8.29a8.638 8.638 0 0 0 5.052 1.622V6.02a4.809 4.809 0 0 1-.926-.334z"/>
+
+                    </svg>
+
+                </a>
+
+
+                <!-- YOUTUBE -->
+
+                <a
+                    class="social-link"
+                    href="https://youtube.com/@darkplantentertainment"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    title="YouTube"
+                    style="
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    "
+                >
+
+                    <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        style="
+                            width: 15px;
+                            height: 15px;
+                            min-width: 15px;
+                            min-height: 15px;
+                            max-width: 15px;
+                            max-height: 15px;
+                            display: block;
+                        "
+                    >
+
+                        <path d="M23.498 6.186a2.996 2.996 0 0 0-2.107-2.117C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.391.569A2.996 2.996 0 0 0 .502 6.186C0 8.078 0 12 0 12s0 3.922.502 5.814a2.996 2.996 0 0 0 2.107 2.117C4.495 20.5 12 20.5 12 20.5s7.505 0 9.391-.569a2.996 2.996 0 0 0 2.107-2.117C24 15.922 24 12 24 12s0-3.922-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

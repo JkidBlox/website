@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Games &mdash; jkidblox.top</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <style>
+
+        /* ================================================= */
+        /* PROJECT POPUP */
+        /* ================================================= */
+
+        .project-popup {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 200;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            background: rgba(0, 0, 0, 0.72);
+
+            backdrop-filter: blur(10px);
+
+        }
+
+
+        .project-popup.active {
+
+            display: flex;
+
+            animation: popupFadeIn 0.2s ease;
+
+        }
+
+
+        @keyframes popupFadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        .project-popup-window {
+
+            width: min(1000px, 92vw);
+
+            max-height: 85vh;
+
+            overflow-y: auto;
+
+            border: 1px solid var(--border);
+
+            background: var(--panel);
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,0.65);
+
+            animation: popupOpen 0.25s ease;
+
+        }
+
+
+        @keyframes popupOpen {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+
+        /* POPUP HEADER */
+
+        .project-popup-header {
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 18px;
+
+            border-bottom: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            position: sticky;
+
+            top: 0;
+
+            background: var(--panel);
+
+            z-index: 2;
+
+        }
+
+
+        .project-popup-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+        }
+
+
+        .project-popup-close {
+
+            width: 32px;
+
+            height: 32px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            background: transparent;
+
+            color: var(--muted);
+
+            font-family: inherit;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .project-popup-close:hover {
+
+            color: var(--green);
+
+            border-color: var(--green);
+
+        }
+
+
+        /* POPUP CONTENT */
+
+        .project-popup-body {
+
+            padding: 55px;
+
+        }
+
+
+        .popup-project-label {
+
+            color: var(--green);
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .project-popup-body h2 {
+
+            font-size: clamp(38px, 6vw, 64px);
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .popup-status {
+
+            display: inline-block;
+
+            padding: 8px 12px;
+
+            border: 1px solid var(--green-dark);
+
+            color: var(--green);
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .popup-section {
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .popup-section:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .popup-section-title {
+
+            color: var(--green);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .popup-description {
+
+            max-width: 800px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 2;
+
+        }
+
+
+        /* DEVELOPERS */
+
+        .developers-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .developer-card {
+
+            display: block;
+
+            padding: 22px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.01);
+
+            transition: 0.25s;
+
+            color: inherit;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+        }
+
+
+        .developer-card:hover {
+
+            border-color: var(--green);
+
+            transform: translateY(-3px);
+
+            background: rgba(92,255,157,0.025);
+
+        }
+
+
+        .developer-role {
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .developer-name {
+
+            color: var(--text);
+
+            font-size: 16px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .developer-steam {
+
+            color: var(--green);
+
+            font-size: 11px;
+
+        }
+
+
+        /* PROJECT DETAILS */
+
+        .project-details {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .project-detail {
+
+            padding: 20px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.01);
+
+        }
+
+
+        .project-detail-label {
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .project-detail-value {
+
+            color: var(--green);
+
+            font-size: 12px;
+
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 750px) {
+
+            .project-popup {
+
+                padding: 15px;
+
+            }
+
+
+            .project-popup-window {
+
+                width: 96vw;
+
+                max-height: 90vh;
+
+            }
+
+
+            .project-popup-body {
+
+                padding: 30px 22px;
+
+            }
+
+
+            .developers-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .project-details {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <div class="scanlines"></div>
+
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            jkidblox.top
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">MAIN</a>
+            <a href="about.html">ABOUT</a>
+            <a href="games.html" class="active">GAMES</a>
+            <a href="news.html">NEWS</a>
+            <a href="studio.html">STUDIO</a>
+            <a href="contact.html">CONTACT</a>
+
+        </nav>
+
+    </header>
+
+
+    <main class="page">
+
+        <div class="page-header">
+
+            <div class="section-label">
+                // GAMES
+            </div>
+
+            <h1>
+                Games<span>_</span>
+            </h1>
+
+            <p>
+                Projects currently being developed.
+            </p>
+
+        </div>
+
+
+        <section class="games-grid">
+
+
+            <!-- RADIOPAIR -->
+
+            <article class="game-card">
+
+                <div class="game-image">
+                    Radiopair
+                </div>
+
+
+                <div class="game-content">
+
+                    <div class="game-status">
+                        IN DEVELOPMENT
+                    </div>
+
+
+                    <h2>
+                        Radiopair
+                    </h2>
+
+
+                    <p>
+                        A simulation game currently being developed
+                        by JkidBlox's team.
+                    </p>
+
+
+                    <a
+                        href="#"
+                        class="card-button"
+                        id="uplink-view"
+                    >
+                        VIEW PROJECT &rarr;
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 02 -->
+
+            <article class="game-card">
+
+                <div class="game-image">
+                    ???
+                </div>
+
+
+                <div class="game-content">
+
+                    <div class="game-status">
+                        CLASSIFIED
+                    </div>
+
+
+                    <h2>
+                        COMING SOON
+                    </h2>
+
+
+                    <p>
+                        Another project may appear here eventually.
+                    </p>
+
+
+                    <a href="#" class="card-button">
+                        MORE INFO &rarr;
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                &copy;JkidBlox 2026 &bull; All Rights Reserved
+            </div>
+
+            <div
+                class="social-links"
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                "
+            >
+
+                <!-- TIKTOK -->
+
+                <a
+                    class="social-link"
+                    href="https://www.tiktok.com/@darkplantentertainment"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                    title="TikTok"
+                    style="
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    "
+                >
+
+                    <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        style="
+                            width: 15px;
+                            height: 15px;
+                            min-width: 15px;
+                            min-height: 15px;
+                            max-width: 15px;
+                            max-height: 15px;
+                            display: block;
+                        "
+                    >
+
+                        <path d="M19.589 6.686a4.793 4.793 0 0 1-4.13-4.18V2h-3.89v13.217a2.896 2.896 0 1 1-2.896-2.896c.302 0 .592.047.865.132V8.48a6.78 6.78 0 0 0-.865-.055A6.785 6.785 0 1 0 15.463 15V8.29a8.638 8.638 0 0 0 5.052 1.622V6.02a4.809 4.809 0 0 1-.926-.334z"/>
+
+                    </svg>
+
+                </a>
+
+
+                <!-- YOUTUBE -->
+
+                <a
+                    class="social-link"
+                    href="https://youtube.com/@darkplantentertainment"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    title="YouTube"
+                    style="
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    "
+                >
+
+                    <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        style="
+                            width: 15px;
+                            height: 15px;
+                            min-width: 15px;
+                            min-height: 15px;
+                            max-width: 15px;
+                            max-height: 15px;
+                            display: block;
+                        "
+                    >
+
+                        <path d="M23.498 6.186a2.996 2.996 0 0 0-2.107-2.117C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.391.569A2.996 2.996 0 0 0 .502 6.186C0 8.078 0 12 0 12s0 3.922.502 5.814a2.996 2.996 0 0 0 2.107 2.117C4.495 20.5 12 20.5 12 20.5s7.505 0 9.391-.569a2.996 2.996 0 0 0 2.107-2.117C24 15.922 24 12 24 12s0-3.922-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================================= -->
+    <!-- RADIOPAIR PROJECT POPUP -->
+    <!-- ================================================= -->
+
+    <div
+        class="project-popup"
+        id="uplink-popup"
+    >
+
+        <div class="project-popup-window">
+
+
+            <!-- HEADER -->
+
+            <div class="project-popup-header">
+
+                <div class="project-popup-title">
+
+                    <div class="terminal-dots">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                    <span>
+                        radiopair@project:~
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="project-popup-close"
+                    id="uplink-close"
+                    aria-label="Close"
+                >
+                    &times;
+                </button>
+
+            </div>
+
+
+            <!-- BODY -->
+
+            <div class="project-popup-body">
+
+
+                <div class="popup-project-label">
+                    // PROJECT INFORMATION
+                </div>
+
+
+                <h2>
+                    Radiopair
+                </h2>
+
+
+                <div class="popup-status">
+                    STATUS: IN DEVELOPMENT
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <section class="popup-section">
+
+                    <div class="popup-section-title">
+                        // ABOUT THE GAME
+                    </div>
+
+
+                    <p class="popup-description">
+
+                        Radiopair is a simulation game being developed
+                        by Dark Plant Entertainment. The player starts
+                        their work inside an office, where they use a
+                        computer to select and manage different jobs.
+
+                        <br><br>
+
+                        After selecting a job, the player is transported
+                        to the work location where they must complete
+                        various tasks. The game focuses on exploration,
+                        interaction, simulation mechanics, and building
+                        a unique work environment.
+
+                        <br><br>
+
+                        Radiopair is currently in active development and
+                        more features, locations, and gameplay systems
+                        are planned for the future.
+
+                    </p>
+
+                </section>
+
+
+                <!-- DEVELOPERS -->
+
+                <section class="popup-section">
+
+                    <div class="popup-section-title">
+                        // DEVELOPERS
+                    </div>
+
+
+                    <div class="developers-grid">
+
+
+                        <a
+                            class="developer-card"
+                            href="https://steamcommunity.com/id/JkidBlox/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <div class="developer-role">
+                                PROGRAMMING / GAME DESIGN
+                            </div>
+
+                            <div class="developer-name">
+                                JkidBlox
+                            </div>
+
+                            <div class="developer-steam">
+                                Steam: JkidBlox
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            class="developer-card"
+                            href="https://steamcommunity.com/profiles/76561198335030050/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <div class="developer-role">
+                                3D ART / MODELLING
+                            </div>
+
+                            <div class="developer-name">
+                                Benediktas
+                            </div>
+
+                            <div class="developer-steam">
+                                Steam: Benediktas
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            class="developer-card"
+                            href="https://steamcommunity.com/profiles/76561199803907638/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <div class="developer-role">
+                                AUDIO
+                            </div>
+
+                            <div class="developer-name">
+                                Justas
+                            </div>
+
+                            <div class="developer-steam">
+                                Steam: justinijus
+                            </div>
+
+                        </a>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- PROJECT DETAILS -->
+
+                <section class="popup-section">
+
+                    <div class="popup-section-title">
+                        // PROJECT DETAILS
+                    </div>
+
+
+                    <div class="project-details">
+
+
+                        <div class="project-detail">
+
+                            <div class="project-detail-label">
+                                DEVELOPER
+                            </div>
+
+                            <div class="project-detail-value">
+                                Dark Plant Entertainment&trade;
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-detail">
+
+                            <div class="project-detail-label">
+                                ENGINE
+                            </div>
+
+                            <div class="project-detail-value">
+                                Godot
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-detail">
+
+                            <div class="project-detail-label">
+                                STATUS
+                            </div>
+
+                            <div class="project-detail-value">
+                                IN DEVELOPMENT
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+
+
+    <script>
+
+        const uplinkView =
+            document.getElementById("uplink-view");
+
+        const uplinkPopup =
+            document.getElementById("uplink-popup");
+
+        const uplinkClose =
+            document.getElementById("uplink-close");
+
+
+        function openUplinkPopup(event) {
+
+            event.preventDefault();
+
+            uplinkPopup.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        }
+
+
+        function closeUplinkPopup() {
+
+            uplinkPopup.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        uplinkView.addEventListener(
+            "click",
+            openUplinkPopup
+        );
+
+
+        uplinkClose.addEventListener(
+            "click",
+            closeUplinkPopup
+        );
+
+
+        uplinkPopup.addEventListener(
+            "click",
+            event => {
+
+                if (event.target === uplinkPopup) {
+
+                    closeUplinkPopup();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape" &&
+                    uplinkPopup.classList.contains("active")
+                ) {
+
+                    closeUplinkPopup();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
